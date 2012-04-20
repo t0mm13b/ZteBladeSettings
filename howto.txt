@@ -1,0 +1,1 @@
+java -jar ~/AOSP/Gingerbread-2.3.7-for-Zte-Blade/out/host/linux-x86/framework/signapk.jar ~/AOSP/Gingerbread-2.3.7-for-Zte-Blade/build/target/product/security/platform.x509.pem ~/AOSP/Gingerbread-2.3.7-for-Zte-Blade/build/target/product/security/platform.pk8 bin/ZteBlade-unsigned.apk ./ZteBlade-signed.apk 

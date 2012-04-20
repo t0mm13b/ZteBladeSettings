@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/prefCategoryProxSensorTitle"
+		android:key="@string/keyCategoryProxSensor">
+		<Preference android:title="@string/prefCatProxSensorCalibrateTitle"
+			android:summary="@string/prefCatProxSensorCalibrateSummary"
+			android:key="@string/keyProxSensorCalibrate" />
+		<Preference android:title="@string/prefCatProxSensorDisplayTitle"
+			android:summary="@string/prefCatProxSensorDisplaySummary"
+			android:key="@string/keyProxSensorDisplay" />
+		<Preference android:title="@string/prefCatProxSensorRestoreTitle"
+			android:summary="@string/prefCatProxSensorRestoreSummary"
+			android:key="@string/keyProxSensorClear" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/prefCategoryUSBChargeTitle"
+		android:key="@string/keyCategoryUSBCharging">
+		<CheckBoxPreference android:title="@string/prefCatUSBChargeTitle"
+			android:summary="@string/prefCatUSBChargeSummary"
+			android:defaultValue="true" android:key="@string/keyUSBCharging" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/prefCatAboutTitle">
+		<Preference android:title="@string/prefCatAboutTitle"
+			android:summary="@string/prefCatAboutSummary" />
+	</PreferenceCategory>
+</PreferenceScreen>

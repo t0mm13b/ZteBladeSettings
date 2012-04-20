@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Zte Blade Settings</string>
+    <!-- Proximity Sensor Preference Category -->
+    <string name="prefCategoryProxSensorTitle">Proximity Sensor</string>
+    <string name="prefCatProxSensorCalibrateTitle">Calibrate proximity sensor</string>
+    <string name="prefCatProxSensorCalibrateSummary">Do not put anything near the top of the screen while running</string>
+    <string name="prefCatProxSensorDisplayTitle">Display proximity sensor data</string>
+    <string name="prefCatProxSensorDisplaySummary">Show current proximity sensor calibration data</string>
+    <string name="prefCatProxSensorRestoreTitle">Restore proximity defaults</string>
+    <string name="prefCatProxSensorRestoreSummary">Removes the calibration data (Requires reboot).</string>
+    <!-- USB Charging Preference Category -->
+    <string name="prefCategoryUSBChargeTitle">USB Charging</string>
+    <string name="prefCatUSBChargeTitle">USB Charging</string>
+    <string name="prefCatUSBChargeSummary">Enable/Disable charging</string>
+    <!-- About Category -->
+    <string name="prefCategoryAboutTitle">About</string>
+    <string name="prefCatAboutTitle">About Zte Blade Settings.</string>
+    <string name="prefCatAboutSummary">A modified version of CyanogenMod\'s BladeParts for the AOSP t0mm13bROM.\nCopyright (C) Tom Brennan (t0mm13b)\nLicensed under GPLv3.\n</string>
+    <!-- Keys Used for each preference -->
+    <string name="keyCategoryProxSensor">proximity_sensor_category</string>
+    <string name="keyProxSensorCalibrate">prox_calibrate</string>
+    <string name="keyProxSensorDisplay">prox_display</string>
+    <string name="keyProxSensorClear">prox_clear</string>
+    <string name="keyCategoryUSBCharging">usb_charging_category</string>
+    <string name="keyUSBCharging">usb_charging</string>
+    <!-- Toasts! -->
+    <string name="toastProxSensorDataSuccess">Successfully restored default. Please reboot.</string>
+    <string name="toastProxSensorDataError">Failed to restore defaults.</string>
+    <!-- Commands -->
+    <string name="cmdProxSensorCalibrate">/system/bin/prox_cal -c</string>
+    <string name="cmdProxSensorDisplay">/system/bin/prox_cal -d</string>
+    <string name="cmdRemove">rm %1$s</string>
+    <string name="cmdShowUSB">/system/bin/cat /sys/module/msm_battery/parameters/usb_chg_enable</string>
+    <!--  -->
+    <string name="fileNameUsb">/sys/module/msm_battery/parameters/usb_chg_enable</string>
+    <string name="fileNameProxSensData">/data/misc/prox_data.txt</string>
+    <!-- Notification -->
+    <string name="notifyMessageUSBStatus">USB Charge Status: %1$s</string>
+    <string name="notifyMessageUSBEnabled">Enabled</string>
+    <string name="notifyMessageUSBDisabled">Disabled</string>
+    <!-- Dialog -->
+    <string name="dlgTitle">Title</string>
+    <string name="dlgMessage">Message</string>
+    <string name="dlgBtnClose">Close</string>
+</resources>

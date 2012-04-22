@@ -14,6 +14,8 @@
     <string name="prefCategoryUSBChargeTitle">USB Charging</string>
     <string name="prefCatUSBChargeTitle">USB Charging</string>
     <string name="prefCatUSBChargeSummary">Enable/Disable charging</string>
+    <string name="prefCatUSBChargeNotifyTitle">USB Charging Notification</string>
+    <string name="prefCatUSBChargeNotifySummary">Enable/Disable the notification to indicate USB Charging</string>
     <!-- About Category -->
     <string name="prefCategoryAboutTitle">About</string>
     <string name="prefCatAboutTitle">About Zte Blade Settings.</string>
@@ -25,6 +27,7 @@
     <string name="keyProxSensorClear">prox_clear</string>
     <string name="keyCategoryUSBCharging">usb_charging_category</string>
     <string name="keyUSBCharging">usb_charging</string>
+    <string name="keyUSBChargingNotify">usb_charge_notify</string>
     <!-- Toasts! -->
     <string name="toastProxSensorDataSuccess">Successfully restored default. Please reboot.</string>
     <string name="toastProxSensorDataError">Failed to restore defaults.</string>

@@ -49,6 +49,7 @@ public class ZteBladeActivity extends PreferenceActivity implements IShellExec, 
 	public static final int ZteBlade_NOTIFY = 0xC0FFEE;
 	private SharedPreferences _prefs = null;
 	private CheckBoxPreference _chkBoxUSBCharging;
+	private CheckBoxPreference _chkBoxUSBChargeNotify;
 	private ShellExec _shExec;
 	private ZteBladeActivityHandler _zbaHandlr;
 	private boolean _blnCanCalibrate = true;
@@ -158,6 +159,18 @@ public class ZteBladeActivity extends PreferenceActivity implements IShellExec, 
 				return true;
 			}
 		});
+        this._chkBoxUSBChargeNotify = (CheckBoxPreference)findPreference(getString(R.string.keyUSBChargingNotify));
+        this._chkBoxUSBChargeNotify.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				boolean blnUSBChargeNotifyFlag = Boolean.getBoolean(newValue.toString());
+				Editor e = _prefs.edit();
+				e.putBoolean(getString(R.string.keyUSBChargingNotify), blnUSBChargeNotifyFlag);
+				e.commit();
+				return true;
+			}
+		});
         this.getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
     @Override
@@ -184,10 +197,12 @@ public class ZteBladeActivity extends PreferenceActivity implements IShellExec, 
 		if (DEBUG) Log.d(TAG, "onSharedPreferenceChanged(...): usbCharging Value! = " + sharedPreferences.getBoolean(getString(R.string.keyUSBCharging), true));
 		String sMsg = "";
     	boolean blnUSBCharge = sharedPreferences.getBoolean(getString(R.string.keyUSBCharging), true);
+    	boolean blnUSBNotify = sharedPreferences.getBoolean(getString(R.string.keyUSBChargingNotify), true);
     	if (blnUSBCharge) sMsg = String.format(getString(R.string.notifyMessageUSBStatus), getString(R.string.notifyMessageUSBEnabled));
     	else sMsg = String.format(getString(R.string.notifyMessageUSBStatus), getString(R.string.notifyMessageUSBDisabled));
 		ZteBladeActivity.WriteUSBValue(blnUSBCharge);
-    	ZteBladeActivity.notifyUSB(this, getString(R.string.app_name), sMsg);
+    	if (blnUSBNotify) ZteBladeActivity.notifyUSB(this, getString(R.string.app_name), sMsg);
+    	else ZteBladeActivity.notifyUSBClear(this.getBaseContext());
 	}
     private void getZteBladePrefs(){
         this._prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -201,6 +216,12 @@ public class ZteBladeActivity extends PreferenceActivity implements IShellExec, 
 		m.what = whatMessage;
 		m.obj = (Object) sResults;
 		_zbaHandlr.sendMessage(m);
+	}
+    public static void notifyUSBClear(Context context){
+		NotificationManager nmNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+		if (nmNotificationManager != null){
+			nmNotificationManager.cancel(ZteBlade_NOTIFY);
+		}
 	}
     public static void notifyUSB(Context context, String sTitle, String sMessage){
 		NotificationManager nmNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);

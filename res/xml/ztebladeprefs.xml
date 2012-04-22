@@ -17,6 +17,9 @@
 		<CheckBoxPreference android:title="@string/prefCatUSBChargeTitle"
 			android:summary="@string/prefCatUSBChargeSummary"
 			android:defaultValue="true" android:key="@string/keyUSBCharging" />
+		<CheckBoxPreference android:title="@string/prefCatUSBChargeNotifyTitle"
+			android:summary="@string/prefCatUSBChargeNotifySummary"
+			android:defaultValue="true" android:key="@string/keyUSBChargingNotify" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/prefCatAboutTitle">
 		<Preference android:title="@string/prefCatAboutTitle"

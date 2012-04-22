@@ -28,12 +28,14 @@ public class ZteBladeStartup  extends BroadcastReceiver{
 	public void onReceive(Context context, Intent arg1) {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		boolean blnUSBCharge = prefs.getBoolean(context.getString(R.string.keyUSBCharging), true); 
+		boolean blnUSBNotify = prefs.getBoolean(context.getString(R.string.keyUSBChargingNotify), true);
         ZteBladeActivity._sProxSensorDataFile = context.getString(R.string.fileNameProxSensData);
         ZteBladeActivity._sUsbFileName = context.getString(R.string.fileNameUsb);
 		String sMsg = "";
 		if(blnUSBCharge) sMsg = String.format(context.getString(R.string.notifyMessageUSBStatus), context.getString(R.string.notifyMessageUSBEnabled)); 
 		else sMsg = String.format(context.getString(R.string.notifyMessageUSBStatus), context.getString(R.string.notifyMessageUSBDisabled));
 		ZteBladeActivity.WriteUSBValue(blnUSBCharge);
-		ZteBladeActivity.notifyUSB(context, context.getString(R.string.app_name), sMsg);
+		if (blnUSBNotify) ZteBladeActivity.notifyUSB(context, context.getString(R.string.app_name), sMsg);
+    	else ZteBladeActivity.notifyUSBClear(context);
 	}
 }
